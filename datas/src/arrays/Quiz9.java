@@ -28,14 +28,26 @@ public class Quiz9 {
 		String[][] eatchFloor = new String[floor][];
 
 		for (int i = 0; i < eatchFloor.length; i++) {
-			System.out.print(i + 1 + "층의 총 호실 입력 : ");
-			int n = input.nextInt();
+			int n;
+			while(true) {
+				System.out.print(i + 1 + "층의 총 호실 입력 : ");
+				
+				try {
+					 n = input.nextInt();
+					
+				} catch (Exception e) {
+					continue;
+				}
+				if(n > 0)
+					break;
+			}
 			eatchFloor[i] = new String[n]; //각 층의 배열 길이 입력.
 		}
 		
 		System.out.println();
 		for (int i = 0; i < eatchFloor.length; i++) {
 			System.out.println((i + 1) + "층은 " + eatchFloor[i].length + "호실 까지 있습니다.");
+//			System.out.printf("%02d층은 %02d호실 까지 있습니다.\n", i + 1, eatchFloor[i].length);
 		}
 		
 		System.out.println("각 호실의 입주자 정보를 입력하세요.");
