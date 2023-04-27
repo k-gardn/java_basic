@@ -8,10 +8,12 @@ public class Quiz5 {
 		/*
 		 * String str = "김개똥 -2017년\n홍길동구리 -2015년\n선우선녀 -2018년";
 		 * 아래와 같이 출력하시오.
+		 * 
 		 * */
 		Scanner input = new Scanner(System.in);
 		
 		String str = "김개똥 -2017년\n홍길동구리 -2015년\n선우선녀 -2018년";
+//		System.out.println(str);
 		
 		String[] person = str.split("\n");
 		for(int i = 0; i < person.length ; i++) {
@@ -33,6 +35,8 @@ public class Quiz5 {
 		str = str.replaceAll("-",": ");
 		str = str.replaceAll("[0-9][0-9][0-9][0-9]", year);
 		System.out.println(str);
+		
+	
 		
 	}
 }
