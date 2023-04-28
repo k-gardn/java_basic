@@ -17,8 +17,9 @@ public class Exam5 {
 		System.out.println(map.keySet());
 		System.out.println(map.values());
 		
-		ArrayList<String> keys = new ArrayList<>(map.keySet());
+		ArrayList<String> keys = new ArrayList<>(map.keySet()); // kye들이 바로 arrayList로 들어감.
 		ArrayList<Integer> vals = new ArrayList<>(map.values());
+		
 		
 		System.out.println(keys);
 		System.out.println(vals);

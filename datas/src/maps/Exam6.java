@@ -15,8 +15,8 @@ public class Exam6 {
 		map.put("건조기", "100");
 		
 		Iterator<String> itk = map.keySet().iterator();
-		while(itk.hasNext()) {
-			String key = itk.next();
+		while(itk.hasNext()) { //그 공간에 값이 있냐?  T/F.
+			String key = itk.next(); // 그 공간 안의 데이터를 가져옴
 			System.out.println(key + " : " + map.get(key));
 		}
 		

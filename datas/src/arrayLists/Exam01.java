@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Exam01 {
 
 	public static void main(String[] args) {
-		ArrayList<String> list = new ArrayList<String>(); //주로 자료형 하나를 지정해서 사용하는걸 권고함.
+		ArrayList list = new ArrayList(); //주로 자료형 하나를 지정해서 사용하는걸 권고함.
 		
 		/*
 		 * 제너릭 형식=> 꺽쇠에 자료형을 지정하는 방법.

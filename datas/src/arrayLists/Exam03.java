@@ -9,7 +9,7 @@ public class Exam03 {
 		
 		/*
 		 * 기본 자료형을 써도됌.
-		 * < Wrpper Class > : 기본 자료형이 아닌, 객체 자료형 = 클래스 자료형
+		 * < Wrapper Class > : 기본 자료형이 아닌, 객체 자료형 = 클래스 자료형
 		 * - Byte
 		 * - Short
 		 * - Character
@@ -17,6 +17,7 @@ public class Exam03 {
 		 * - Long 
 		 * - Float
 		 * - Double
+		 * - Boolean
 		 * */
 		
 		Integer data1 = 10;
