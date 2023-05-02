@@ -10,7 +10,7 @@ public class Member {
 	//아래 HashMap에 데이터 관리의 코드는 Member Class에 작성
 	// 데이터 관리 코드: Create(입력), Read(검색, 조회), Update(수정), Delete(삭제)
 	
-	private HashMap<String, String> passwords = new HashMap<>();
+	private HashMap<String, String> passwords = new HashMap<>(); //저장소
 	private HashMap<String, String> names = new HashMap<>();
 	
 	public void insert(String id, String password, String name) {
@@ -21,13 +21,14 @@ public class Member {
 	public MemberDTO select(String id) {
 		String p = passwords.get(id);
 		String n = names.get(id);
-		if(p == null)
+		if(p == null) //저장된 id가 아니다.
 			return null;
 		
 		MemberDTO memberDto = new MemberDTO();
+		memberDto.setId(id);
 		memberDto.setPassword(p);
 		memberDto.setName(n);
-		return memberDto;
+		return memberDto; //참조값
 		
 		/*
 		 * return p, n; 
@@ -38,20 +39,25 @@ public class Member {
 	}
 	
 	public ArrayList<MemberDTO> selectAll() {
+		
+		// 한 사람의 정보: DTO
+		// 여러 사람의 정보 : ArrayList
 		ArrayList<MemberDTO> members = new ArrayList<>();
 		
 		for(String id : passwords.keySet()) {
-			
 			MemberDTO dto = new MemberDTO();
 			dto.setId(id);
 			dto.setPassword(passwords.get(id));
 			dto.setName(names.get(id));
 			members.add(dto);
 		}
-		return members;
+		return members; //참조변수 members의 참조값만 반환함. 이 참조값
 	}
 	
-	public void update() {}
+	public void update(MemberDTO memberDto) {
+		passwords.put(memberDto.getId(), memberDto.getPassword());
+	}
+	
 	public void delete(String id) {
 		names.remove(id);
 		passwords.remove(id);

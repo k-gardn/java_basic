@@ -1,7 +1,6 @@
 package methodExam;
 
-public class MemberDTO {
-	// 데이터 전달시 데이터가 여러개일 때 한번에 담아서 전달할 때,
+public class QuizDTO4 {
 	
 	private String id;
 	private String password;
@@ -25,4 +24,5 @@ public class MemberDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+
 }
