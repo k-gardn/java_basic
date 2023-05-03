@@ -40,7 +40,8 @@ public class Quiz4 {
 				if(index == -1) {
 					System.out.print("비밀번호 : "); password = sc.next();
 					System.out.print("이름 : "); name = sc.next();
-					memberDto = new QuizDTO4();
+					
+					memberDto = new QuizDTO4(); // 새로 추가할 때 필요함.
 					
 					memberDto.setId(id);
 					memberDto.setPassword(password);
@@ -57,63 +58,65 @@ public class Quiz4 {
 			case "2": //회원 검색
 				System.out.print("아이디 : "); id = sc.next();
 				index = memberDao.indexOf(id); //데이터 조회해줘
-				System.out.println(index);
+				
 				if(index == -1) {
 					System.out.println("등록되지 않은 아이디입니다.");
 				}else {
+					memberDto = memberDao.get(index);
 					System.out.println("## 회원 검색 결과 ##");
-					System.out.println("아이디 : " + id);
-					System.out.println("비밀번호 : " + memberDao.get(id).getPassword());
-					System.out.println("이름 : " + memberDao.get(id).getName());
+					System.out.println("아이디 : " + memberDto.getId());
+					System.out.println("비밀번호 : " + memberDto.getPassword());
+					System.out.println("이름 : " + memberDto.getName());
 				}
 				System.out.println();
 				break;
-//			case "3": 
-//				System.out.print("아이디 : "); id = sc.next();
-//				memberDto = memberDao.selectId(id); //데이터 조회해줘
-//				
-//				if(memberDto == null) {
-//					System.out.println("등록되지 않은 아이디입니다.");
-//				}else {
-//					memberDao.delete(id);
-//					System.out.println(id + " 계정 정보 삭제 완료");
-//				}
-//				System.out.println();
-//				break;
-//			case "4": 
-//				ArrayList<QuizDTO3> members = memberDao.selectAll(); 
-//				
-//				if(members.isEmpty()) {
-//					System.out.println("등록 후 이용하세요.");
-//				}else {
-//					for(QuizDTO3 dto : members) {
-//						System.out.println("아이디 : " + dto.getId());
-//						System.out.println("비밀번호 : " + dto.getPassword());
-//						System.out.println("이름 : " + dto.getName());
-//						System.out.println();
-//					}
-//					
-//				}
-//				break;
-//			case "5": 
-//				System.out.print("아이디 : "); id = sc.next();
-//				memberDto = memberDao.selectId(id); //데이터 조회해줘
-//				
-//				if(memberDto == null) {
-//					System.out.println("등록되지 않은 아이디입니다.");
-//				}else {
-//					System.out.print("현재 비밀번호 : "); password = sc.next();
-//					if(memberDto.getPassword().equals(password)) {
-//						System.out.print("새로운 비밀번호 : ");
-//						memberDto.setId(id);
-//						memberDto.setPassword(sc.next());
-//						
-//						memberDao.update(memberDto);
-//					}
-//					System.out.println("비밀번호가 수정되었습니다.");
-//				}
-//				System.out.println();
-//				break;
+			case "3": 
+				System.out.print("아이디 : "); id = sc.next();
+				index = memberDao.indexOf(id); //데이터 조회해줘
+				
+				if(index == -1) {
+					System.out.println("등록되지 않은 아이디입니다.");
+				}else {
+					memberDao.remove(index);
+					System.out.println(id + " 계정 정보 삭제 완료");
+				}
+				System.out.println();
+				break;
+			case "4": 
+				ArrayList<QuizDTO4> list = memberDao.getAll(); 
+				
+				if(list.isEmpty()) {
+					System.out.println("등록 후 이용하세요.");
+				}else {
+					for(QuizDTO4 dto : list) {
+						System.out.println("아이디 : " + dto.getId());
+						System.out.println("비밀번호 : " + dto.getPassword());
+						System.out.println("이름 : " + dto.getName());
+						System.out.println();
+					}
+					
+				}
+				break;
+			case "5": 
+				System.out.print("아이디 : "); id = sc.next();
+				index = memberDao.indexOf(id);
+				
+				if(index == -1) {
+					System.out.println("등록되지 않은 아이디입니다.");
+				}else {
+					memberDto = memberDao.get(index);
+					System.out.print("현재 비밀번호 : "); password = sc.next();
+					if(memberDto.getPassword().equals(password)) {
+						System.out.print("새로운 비밀번호 : ");
+						memberDto.setPassword(sc.next());
+						
+						memberDao.set(index, memberDto);
+					}else {
+						System.out.println("비밀번호가 수정되었습니다.");
+					}
+				}
+				System.out.println();
+				break;
 			case "6" : System.out.println("프로그램을 종료합니다."); System.exit(0);
 			default : System.out.println("메뉴를 확인하세요.");
 			}
