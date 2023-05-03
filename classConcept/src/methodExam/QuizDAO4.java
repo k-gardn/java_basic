@@ -14,25 +14,31 @@ public class QuizDAO4 {
 	public int indexOf(String id) {
 		// id의 index를 알아내야해.
 		int index;
-		QuizDTO4 dto = new QuizDTO4();
-		dto.setId(id);
-//		members.contains(dto);
-		index = members.indexOf(dto);
-//		
-////		index = members.indexOf(id);
-		return index;
+		for(QuizDTO4 qd: members) {// ArrayList의 각 인덱스를 순회
+			if(qd.getId().equals(id))
+				return members.indexOf(qd);
+		} 
+		return -1; // 찾는 id가 없다.
 	};
+	
 	public void add(QuizDTO4 quizDto) {
 		members.add(quizDto);
-		System.out.println(members.get(members.indexOf(quizDto)));
 	}
 	
-	public QuizDTO4 get(String id) {
-		QuizDAO4 QuizDAO4 = new QuizDAO4();
-		int index = QuizDAO4.indexOf(id);
-		QuizDTO4 dto = members.get(index);
-		return dto;
+	public QuizDTO4 get(int index) {
+		return members.get(index);
 	};
-//	public void set() {};
-//	public void remove() {};
+	
+	public void set(int index, QuizDTO4 quizDto) {
+		members.set(index, quizDto);
+	};
+	
+	public void remove(int index) {
+		members.remove(index);
+	};
+	
+	public ArrayList<QuizDTO4> getAll() {
+		
+		return members;
+	};
 }

@@ -7,6 +7,9 @@ public class Student {
 	private int eng;
 	private int math;
 	
+//	public Student() {
+//		// TODO Auto-generated constructor stub
+//	}
 	public String getName() {
 		return name;
 	}
