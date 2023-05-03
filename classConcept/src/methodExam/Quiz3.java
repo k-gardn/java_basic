@@ -18,9 +18,9 @@ public class Quiz3 {
 		 * 5.비밀번호 수정 : id를 Key로 사용 중이기에 id를 이용하여 비밀번호를 수정함. 
 		 * 6.프로그램 종료 : 프로그램을 종료함.
 		 */
-		QuizDAO3 memberDao = new QuizDAO3();
+		QuizDAO3 memberDao = new QuizDAO3(); // 매서드를 사용하기 위해서 가져옴.
 		String id = "", name = "", password = "";
-		QuizDTO3 memberDto;
+		QuizDTO3 memberDto;	//
 		
 		while(true) {
 			System.out.println("1. 회원등록");
@@ -35,13 +35,22 @@ public class Quiz3 {
 			switch(select) {
 			case "1": 
 				System.out.print("아이디 : "); id = sc.next();
-				memberDto = memberDao.selectId(id); //데이터 조회해줘.
+				memberDto = memberDao.selectId(id); //데이터 조회해줘.리턴 값에 이미 값이 담겨있음.
 				
 				if(memberDto == null) {
 					System.out.print("비밀번호 : "); password = sc.next();
 					System.out.print("이름 : "); name = sc.next();
 					
-					memberDao.insert(id, password, name); //저장소에 등록해줘.
+					memberDto = new QuizDTO3(); 
+					// 현재 memberDto가 null일때로 가정했기 때문에, 새로 만들어줘야함.
+					
+					memberDto.setId(id);
+					memberDto.setName(name);
+					memberDto.setPassword(password);
+					
+					memberDao.put(memberDto);
+					
+//					memberDao.insert(id, password, name); //저장소에 등록해줘.
 					System.out.println(id + " 계정 등록 완료");
 				}else {
 					System.out.println("등록된 아이디입니다.");
@@ -56,8 +65,7 @@ public class Quiz3 {
 					System.out.println("등록되지 않은 아이디입니다.");
 				}else {
 					System.out.println("## 회원 검색 결과 ##");
-					System.out.println("아이디 : " + id);
-//					memberDto = members.get(id);
+					System.out.println("아이디 : " + memberDto.getId());
 					System.out.println("비밀번호 : " + memberDto.getPassword());
 					System.out.println("이름 : " + memberDto.getName());
 				}
@@ -65,7 +73,7 @@ public class Quiz3 {
 				break;
 			case "3": 
 				System.out.print("아이디 : "); id = sc.next();
-				memberDto = memberDao.selectId(id); //데이터 조회해줘
+				memberDto = memberDao.selectId(id); 
 				
 				if(memberDto == null) {
 					System.out.println("등록되지 않은 아이디입니다.");
@@ -82,6 +90,7 @@ public class Quiz3 {
 					System.out.println("등록 후 이용하세요.");
 				}else {
 					for(QuizDTO3 dto : members) {
+						System.out.println(dto);
 						System.out.println("아이디 : " + dto.getId());
 						System.out.println("비밀번호 : " + dto.getPassword());
 						System.out.println("이름 : " + dto.getName());
@@ -100,7 +109,6 @@ public class Quiz3 {
 					System.out.print("현재 비밀번호 : "); password = sc.next();
 					if(memberDto.getPassword().equals(password)) {
 						System.out.print("새로운 비밀번호 : ");
-						memberDto.setId(id);
 						memberDto.setPassword(sc.next());
 						
 						memberDao.update(memberDto);
