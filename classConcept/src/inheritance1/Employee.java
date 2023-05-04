@@ -1,6 +1,11 @@
 package inheritance1;
 
 public class Employee {
+	
+	/* 
+	 * 상속을 사용하는 이유
+	 * : 중복코드 제거, 개발 시간 단축 
+	 */
 	private String name;
 	private int age;
 	private String dept;

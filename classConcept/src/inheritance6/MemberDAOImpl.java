@@ -14,10 +14,14 @@ public class MemberDAOImpl implements IMemberDAO{
 	}
 	
 	public void insert (String email,String name, String mobile ) {
-		emails.add(email);
-		names.add(name);
-		mobiles.add(mobile);
-		System.out.println("회원이 등록되었습니다.");
+		if(emails.contains(email)) {
+			System.out.println("이미 등록된 이메일 입니다.");
+		}else {
+			emails.add(email);
+			names.add(name);
+			mobiles.add(mobile);
+			System.out.println("회원이 등록되었습니다.");
+		}
 	}
 
 	@Override
@@ -60,7 +64,6 @@ public class MemberDAOImpl implements IMemberDAO{
 	public void update(String email, String name, String mobile) {
 		if(emails.contains(email)) {
 			int index = emails.indexOf(email);
-			emails.set(index, email);
 			names.set(index, name);
 			mobiles.set(index, mobile);
 			System.out.println("회원정보가 수정되었습니다.");

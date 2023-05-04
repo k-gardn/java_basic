@@ -12,9 +12,12 @@ public class Student {
 	// 메서드와 달리 -> 반환 값이 없다.
 	// 데이터는 딱한번만 입력 가능
 	
-	// 기본 생성자(default Constructor)
-	// - 생성자 한 개도 없으면 자동으로 만들어짐
-	// - 생성자가 한 개라도 있다면 자동으로 만들어지지 않음.	
+	/*
+	 * 기본 생성자(default Constructor) 
+	 * - 생성자 한 개도 없으면 자동으로 만들어짐 
+	 * - 생성자가 한 개라도 있다면 자동으로 만들어지지 않음.
+	 * 
+	 */
 	public Student() {  }
 	public Student(String name) {  }	// 똑같은건 허용할 수 없음. 매개변수가 달라야함.
 	

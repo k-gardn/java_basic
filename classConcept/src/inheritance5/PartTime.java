@@ -2,6 +2,8 @@ package inheritance5;
 
 //  implements IEmployee 반드시 구현해야하는 것.
 public class PartTime extends Employee implements IEmployee{
+	// 클래스는 단일 상속 가능. (Object + 개발자가 선택한 class)
+	// 인터페이스는 다중 상속 가능.
 	private int time;
 	private int salary;
 	public static final double PI = 3.14; // 대문자로 표현. final: 바꿀 수 없음.
