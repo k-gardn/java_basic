@@ -7,7 +7,7 @@ public class DAO {
 	ArrayList<DTO> memberList ;
 	
 	public DAO() {
-		memberList = new ArrayList<DTO>();
+		memberList = new ArrayList<>();
 	}
 	
 	public int indexOf(String id) {
