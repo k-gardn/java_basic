@@ -13,7 +13,7 @@ public class QuizDAO4 {
 	
 	public int indexOf(String id) {
 		// id의 index를 알아내야해.
-		int index;
+//		int index;
 		for(QuizDTO4 qd: members) {// ArrayList의 각 인덱스를 순회
 			if(qd.getId().equals(id))
 				return members.indexOf(qd);
