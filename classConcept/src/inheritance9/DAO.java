@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class DAO {
 	
-	ArrayList<DTO> memberList = new ArrayList<DTO>();
+	ArrayList<DTO> memberList ;
+	
+	public DAO() {
+		memberList = new ArrayList<DTO>();
+	}
 	
 	public int indexOf(String id) {
 		for(DTO member : memberList) {
