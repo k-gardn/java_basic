@@ -19,12 +19,14 @@ public class MemberMain {
 			System.out.println("5. 회원 수정");
 			System.out.println("6. 프로그램 종료");
 			System.out.print("선택 > ");
+			
 			int select;
 			try {
 				select = Integer.parseInt(in.next());
 			} catch (Exception e) {
 				continue;
 			}
+			
 			switch (select) {
 			case 1:
 				System.out.println();
