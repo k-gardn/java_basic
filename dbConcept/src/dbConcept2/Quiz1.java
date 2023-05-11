@@ -84,6 +84,7 @@ public class Quiz1 {
 				sql = "SELECT name FROM concept WHERE email = ?";
 //				sql = "SELECT * FROM concept WHERE email = ?";
 //				sql = "SELECT count(email) FROM concept WHERE email = ?";
+				
 				try {
 					ps = con.prepareStatement(sql);
 					ps.setString(1, em);
