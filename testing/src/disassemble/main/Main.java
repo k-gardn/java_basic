@@ -10,11 +10,18 @@ import disassemble.Service.MemberDeleteService;
 import disassemble.Service.MemberRegisterService;
 
 public class Main {
+	/*
+	 * static을 붙이는 이유 
+	 * : 코드 실행시 바로 메모리에 올리기 때문에 new 사용할 필요없이(인스턴스로 만들 필요 없이),
+	 *  클래스 import없이 메서드 이름만(같은 패키지 안에 있기 때문에)으로 사용이 가능하다.
+	 *  
+	 *  new Main();  : static 붙어 있지 않은 애들도 메모리에 올린다.
+	 */
+	
 	private static MemberDAO memberDao = new MemberDAO();
 	//MemberDAO 만들어야함.
-	public static void main(String[] args) {
+	public static void main(String[] args) { //CLI 처럼 만들려고 설계한 것.
 		Scanner sc = new Scanner(System.in);
-		
 		
 		while(true){
 			System.out.println("명령어를 입력하세요");
@@ -40,7 +47,6 @@ public class Main {
 				processDeleteCommand(command.split(" "));
 				continue;
 			}
-			
 			printHelp();
 		}
 	}
@@ -53,20 +59,19 @@ public class Main {
 		// MemberRegisterService 객체 생성
 		// RegisterRequest 객체 생성 
 		// 데이터는 RegisterRequest 객체에 입력
-		// regSvc.regist() 호출
 		MemberRegisterService regSvc = new MemberRegisterService(memberDao);
 		RegisterRequest regReqDTO = new RegisterRequest();
 		
 		regReqDTO.setEmail(arg[1]);
 		regReqDTO.setName(arg[2]);
 		regReqDTO.setPassword(arg[3]);
-		regReqDTO.setConfirmPassword( arg[4]);
+		regReqDTO.setConfirmPassword(arg[4]);
 		
+		// regSvc.regist() 호출
 		regSvc.regist(regReqDTO);
 	}
 	//입력값 없음.
 	private static void processAllCommand() {
-		
 		// MemberAllService 객체 생성
 		MemberAllService allSvc = new MemberAllService(memberDao);
 		// allSvc.selectAll() 호출
@@ -87,6 +92,7 @@ public class Main {
 		String oldPw = arg[2];
 		String newPw = arg[3];
 		change.changePassword(email,oldPw,newPw);
+//		change.changePassword(arg[1],arg[2],arg[3]);
 	}
 
 	private static void processDeleteCommand(String[] arg) {
@@ -102,6 +108,7 @@ public class Main {
 		String password = arg[2];
 		String confirmPassword = arg[3];
 		delete.checkPassword(email, password, confirmPassword);
+//		delete.checkPassword(arg[1],arg[2],arg[3]);
 	}
 
 	private static void printHelp(){

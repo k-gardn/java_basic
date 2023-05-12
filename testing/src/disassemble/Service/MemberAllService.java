@@ -15,12 +15,8 @@ public class MemberAllService {
 	
 	public void selectAll() {
 		// MemberDAO 객체 내부 selectAll() 호출 후 회원 모든 정보 출력
-//		System.out.println("===== 회원 정보 =====");
-//		HashMap<String, MemberDTO> members = new HashMap<>();
-//		for ( String key :) {
-//		    System.out.println("메뉴 : " + key +"\t가격 : " + menu.get(key)+"원");
-//		}
 		ArrayList<MemberDTO> memberList = new ArrayList<>(memberDao.selectAll());
+		
 		if(memberList.size() == 0) {
 			System.out.println("회원이 존재하지 않습니다.");
 		}else {
@@ -32,8 +28,6 @@ public class MemberAllService {
 				System.out.println("등록 날짜 : " + dto.getRegisterDate());
 				System.out.println();
 			}
-			
 		}
 	}
-
 }

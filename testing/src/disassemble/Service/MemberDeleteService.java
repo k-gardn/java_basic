@@ -28,9 +28,8 @@ public class MemberDeleteService {
 					System.out.println("등록된 비밀번호와 다르게 입력하셨습니다.");
 				}
 			}
-			
 		}else {
-			System.out.println("패스워드 확인이 잘 못 되었습니다.");
+			System.out.println("패스워드 확인이 잘못되었습니다.");
 		}
 	}
 }
