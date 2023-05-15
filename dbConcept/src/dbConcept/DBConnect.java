@@ -29,7 +29,9 @@ public class DBConnect {
 		} 
 		
 		// URL로 DB에 접근하여 user/password 입력 후 로그인 함.
-		String url = "jdbc:oracle:thin:@localhost:1521:xe"; // 자바 데이터 베이스, 오라클로 연결할것이고, 예전에 비해 얇아졌다. DB IP . 서비스 이름(?)
+		String url = "jdbc:oracle:thin:@localhost:1521:xe"; 
+		// 자바 데이터 베이스, 오라클로 연결할것이고, 예전에 비해 얇아졌다. DB IP . port. SID서비스 이름(?)
+		// jdbc:oracle:thin == http
 //		String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 		String user = "oracle"; 	// DB 아이디
 		String password = "oracle"; //  DB 비밀번호

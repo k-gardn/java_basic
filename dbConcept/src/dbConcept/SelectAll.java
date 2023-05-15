@@ -47,7 +47,7 @@ public class SelectAll {
 				
 				members.add(vo);
 			}
-			//ps.executeUpdate(); // 행을 반환
+			//ps.executeUpdate(); // sql 변수의 명령어를 디비로 전달 한 후  결과를 반환. 행을 반환
 			
 			/* SELECT 명령
 			 * ps.executeQuery();
