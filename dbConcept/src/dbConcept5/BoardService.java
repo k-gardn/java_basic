@@ -74,6 +74,7 @@ public class BoardService implements IBoardService{
 		} catch (Exception e) {
 			return;
 		}
+		
 		BoardDTO selected = dao.selectNum(num);
 		if(selected == null) {
 			System.out.println("등록 되어 있지 않은 게시물 입니다.");
