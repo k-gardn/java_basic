@@ -31,6 +31,7 @@ public class Main extends Application {
 			int x = screenSize.width;
 			int y = screenSize.height;
 			
+			// 창의 시작 위치 지정
 			primaryStage.setX(x / 2 - (400 / 2)); // 해상도 / 2 - 창크기 / 2
 			primaryStage.setY(y / 2 - (200 / 2));
 			

@@ -33,6 +33,7 @@ public class FlowPane1 extends Application{
 		list.addAll(button3, button4);
 		flowPane.getChildren().addAll( button5, button6);
 		
+		//ObservableList에 있는 요소를 화면에 보여줌.
 		primaryStage.setScene(new Scene(flowPane,200,200));
 		primaryStage.show();
 	}
