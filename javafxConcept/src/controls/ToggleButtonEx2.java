@@ -26,7 +26,7 @@ public class ToggleButtonEx2 extends Application{
 		tb3.setToggleGroup(group);
 		
 		tb1.setGraphic(new ImageView("/img/magi.png"));
-		tb2.setGraphic(new ImageView("/img/rogue.png"));
+		tb2.setGraphic(new ImageView("/img/Rogue.png"));
 		tb3.setGraphic(new ImageView("/img/warrior.png"));
 		
 		HBox box = new HBox();
