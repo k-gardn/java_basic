@@ -7,7 +7,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import sceneBuilders.MemberDAO;
 
 public class RegService {
 	private MemberDAO memberDao;
