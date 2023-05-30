@@ -26,6 +26,22 @@ public class Ex6 extends Application{
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("regForm.fxml"));
 		Parent form = loader.load();  
 		
+		/*
+		 *  DB에 Table 수정하기
+		 *  이름 : scene
+		 *  컬럼 : 이름(name), 성별(gender), 
+		 *  컬럼 : 연령대(ageScope), 취미(hobbys)
+		 *  
+			ALTER TABLE scene ADD name varchar2(21);
+			ALTER TABLE scene ADD gender varchar2(6);
+			ALTER TABLE scene ADD age_scope varchar2(6);
+			ALTER TABLE scene ADD hobbys varchar2(100);
+			COMMIT;
+
+		 *  위 테이블에 ALTER TABLE 명령을 사용하여
+		 *  컬럼을 추가하기.
+		 */
+		
 		Button joinBtn = (Button)form.lookup("#join");
 		ComboBox<String> ageCombo = (ComboBox<String>) form.lookup("#ageCombo");
 		ageCombo.getItems().addAll("10대", "20대","30대");

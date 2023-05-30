@@ -21,6 +21,28 @@ public class Ex5 extends Application{
 		
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("loginForm.fxml"));
 		Parent form = loader.load();  
+		
+		/*
+		 *  DB에 Table 생성하기
+		 *  이름 : scene
+		 *  컬럼 : 아이디(id), 비밀번호(pw)
+		 *  primary key : 아이디
+		 *  
+		 *  위 테이블 생성 후 INSERT INTO 명령을 사용하여 회원 등록
+		 *  
+			CREATE TABLE scene(
+			id varchar2(20),
+			pw varchar2(20),
+			PRIMARY KEY(id)
+			);
+			INSERT INTO scene VALUES('admin', '1234');
+			INSERT INTO scene VALUES('user1', '1111');
+			COMMIT;
+			
+		 *  loginForm에서 입력된 데이터를 scene 테이블에 저장된 회원과 비교하여
+		 *  로그인 성공 또는 로그인 실패 출력하기.
+		 */
+		
 		Button joinBtn = (Button)form.lookup("#join");
 		Button loginBtn = (Button)form.lookup("#login");
 		
